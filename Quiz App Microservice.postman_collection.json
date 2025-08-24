@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "68531fa5-e451-4f69-b8ab-f48e42b27842",
+		"name": "Quiz App Microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32184815"
+	},
+	"item": [
+		{
+			"name": "Create Question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"category\": \"Science\",\r\n  \"question\": \"What is the chemical symbol for water?\",\r\n  \"option1\": \"H2O\",\r\n  \"option2\": \"O2\",\r\n  \"option3\": \"CO2\",\r\n  \"option4\": \"NaCl\",\r\n  \"answer\": \"H2O\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/question/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Question",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"category\": \"Maths\",\r\n  \"question\": \"What is the chemical symbol for water?\",\r\n  \"option1\": \"H2O\",\r\n  \"option2\": \"O2\",\r\n  \"option3\": \"CO2\",\r\n  \"option4\": \"NaCl\",\r\n  \"answer\": \"H2O\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Question",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/question/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Random Questions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"maths\",\r\n    \"numOfQuestions\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/generate-quiz-questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"generate-quiz-questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quiz Questions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[3, 2, 10, 12]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/quiz/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"quiz",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Score",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 2,\r\n        \"answer\": \"H2O\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/get-result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"get-result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"First Maths\",\r\n    \"category\": \"science\",\r\n    \"numOfQuestions\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/quiz/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"quiz",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quiz By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/quiz/get/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"quiz",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Quiz and Get Score",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 2,\r\n        \"answer\": \"H2O\"\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"answer\": \"Oxygen\"\r\n    },\r\n    {\r\n        \"id\": 6,\r\n        \"answer\": \"Skin\"\r\n    },\r\n    {\r\n        \"id\": 7,\r\n        \"answer\": \"Vitamin D\"\r\n    },\r\n    {\r\n        \"id\": 10,\r\n        \"answer\": \"Carbon dioxide\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/quiz/submit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"quiz",
+						"submit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
